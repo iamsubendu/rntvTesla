@@ -2,31 +2,33 @@ import { View, Text, StyleSheet, ImageBackground } from 'react-native';
 import StyleButton from './StyleButton';
 
 const CarItem = (props) => {
+  const { name, tagline, image, taglineCTA } = props;
   return (
     <>
       <View style={styles.carCont}>
-        <ImageBackground
-          source={require('../assets/img/ModelX.jpeg')}
-          style={styles.image}
-        />
+        <ImageBackground source={image} style={styles.image} />
         <View style={styles.titles}>
-          <Text style={styles.title}>Model Z</Text>
-          <Text style={styles.subtitle}>Starting at 69,{'\u20A8'}</Text>
+          <Text style={styles.title}>{name}</Text>
+          <Text style={styles.subtitle}>
+            {tagline}&nbsp; <Text style={styles.subtitleCTA}>{taglineCTA}</Text>
+          </Text>
         </View>
-        <StyleButton
-          type="primary"
-          content={'Custom Order'}
-          onPress={() => {
-            console.warn('jdg');
-          }}
-        />
-        <StyleButton
-          type="secondary"
-          content={'Existing Inventory'}
-          onPress={() => {
-            console.warn('jdjkhg');
-          }}
-        />
+        <View style={styles.btnCont}>
+          <StyleButton
+            type="primary"
+            content={'Custom Order'}
+            onPress={() => {
+              console.warn('jdg');
+            }}
+          />
+          <StyleButton
+            type="secondary"
+            content={'Existing Inventory'}
+            onPress={() => {
+              console.warn('jdjkhg');
+            }}
+          />
+        </View>
       </View>
     </>
   );
@@ -57,5 +59,13 @@ const styles = StyleSheet.create({
     height: '100%',
     resizeMode: 'cover',
     position: 'absolute',
+  },
+  btnCont: {
+    position: 'absolute',
+    bottom: 50,
+    width: '100%',
+  },
+  subtitleCTA: {
+    textDecorationLine: 'underline',
   },
 });
