@@ -1,4 +1,5 @@
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import StyleButton from './StyleButton';
 
 const CarItem = (props) => {
   return (
@@ -12,6 +13,20 @@ const CarItem = (props) => {
           <Text style={styles.title}>Model Z</Text>
           <Text style={styles.subtitle}>Starting at 69,{'\u20A8'}</Text>
         </View>
+        <StyleButton
+          type="primary"
+          content={'Custom Order'}
+          onPress={() => {
+            console.warn('jdg');
+          }}
+        />
+        <StyleButton
+          type="secondary"
+          content={'Existing Inventory'}
+          onPress={() => {
+            console.warn('jdjkhg');
+          }}
+        />
       </View>
     </>
   );
